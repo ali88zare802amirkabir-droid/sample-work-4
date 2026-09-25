@@ -33,7 +33,7 @@ const TABS: { id: Tab; label: string }[] = [
 ];
 
 export function ProductDetailClient({ id }: { id: string }) {
-  const { products, addToCart, toggleWishlist, isWishlisted, toast } = useCommerce();
+  const { products, addToCart, toggleWishlist, isWishlisted } = useCommerce();
   const product = products.find((p) => p.id === id);
   const router = useRouter();
 
@@ -52,7 +52,7 @@ export function ProductDetailClient({ id }: { id: string }) {
         <EmptyState
           icon={PackageCheck}
           title="Product not found"
-          desc="This product may have been removed from the demo catalog."
+          desc="This product may have been removed from the catalog."
           action={
             <Link href="/shop">
               <Button variant="primary">Browse Shop</Button>
@@ -196,14 +196,14 @@ export function ProductDetailClient({ id }: { id: string }) {
             ) : (
               <Badge tone="ok">In stock</Badge>
             )}
-            <span className="text-ink-3">· ships demo-fast</span>
+            <span className="text-ink-3">· ships today</span>
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-            {[
-              { icon: Truck, label: "Free demo shipping" },
-              { icon: ShieldCheck, label: "Secure demo checkout" },
-              { icon: PackageCheck, label: "30-day returns demo" },
+{[
+              { icon: Truck, label: "Free shipping" },
+              { icon: ShieldCheck, label: "Secure checkout" },
+              { icon: PackageCheck, label: "30-day returns" },
             ].map(({ icon: Icon, label }) => (
               <div
                 key={label}
@@ -247,9 +247,6 @@ export function ProductDetailClient({ id }: { id: string }) {
                 <h2 className="font-display text-lg font-semibold text-ink">Product Information</h2>
                 <p className="mt-3 text-[14.5px] leading-relaxed text-ink-2">
                   {product.longDescription}
-                </p>
-                <p className="mt-3 text-[13.5px] leading-relaxed text-ink-3">
-                  All content on this page is sample data for a portfolio demonstration.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-1.5">
                   {product.tags.map((tag) => (
@@ -300,7 +297,7 @@ export function ProductDetailClient({ id }: { id: string }) {
                 <div className="flex items-center gap-2 text-sm">
                   <Stars value={product.rating} size="md" />
                   <span className="font-bold text-ink">{product.rating.toFixed(1)}</span>
-                  <span className="text-ink-3">from {product.reviewCount} demo reviews</span>
+                  <span className="text-ink-3">from {product.reviewCount} reviews</span>
                 </div>
               </div>
               <div className="mt-4 space-y-4">
@@ -337,7 +334,7 @@ export function ProductDetailClient({ id }: { id: string }) {
                 )}
                 <div className="flex items-center gap-2 rounded-xl border border-edge bg-surface-2 px-4 py-3 text-[12.5px] text-ink-3">
                   <ShieldCheck className="h-4 w-4 shrink-0 text-accent" />
-                  Reviews are fictional sample content written for this portfolio demo.
+                  Reviews are shown purely for illustration.
                 </div>
               </div>
             </div>
@@ -358,10 +355,7 @@ export function ProductDetailClient({ id }: { id: string }) {
             </div>
             <button
               type="button"
-              onClick={() => {
-                toast("Related products", { desc: "Demo related-items engine (category-first).", variant: "info" });
-                router.push("/shop");
-              }}
+              onClick={() => router.push("/shop")}
               className="text-sm font-medium text-accent hover:text-cyan"
             >
               View all →

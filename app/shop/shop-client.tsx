@@ -98,7 +98,7 @@ export function ShopClient({
           </h1>
           <p className="mt-1 text-[13px] text-ink-3">
             {results.length} {results.length === 1 ? "product" : "products"}
-            {filters.cat !== "all" && " in this category"} · demo data
+            {filters.cat !== "all" && " in this category"}
           </p>
         </div>
         <div className="flex w-full items-center justify-between gap-2 sm:w-auto">

@@ -22,7 +22,6 @@ import { money } from "@/lib/utils";
 import { ProductArt } from "@/components/ui/product-art";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 type StepIndex = 0 | 1 | 2;
@@ -33,20 +32,20 @@ const PAY_METHODS = [
   {
     id: "demo-card",
     icon: CreditCard,
-    title: "Demo card",
-    desc: "Card •••• 4242 — fictional, no real gateway.",
+    title: "Card",
+    desc: "Card ending •••• 4242.",
   },
   {
     id: "demo-wallet",
     icon: Wallet,
-    title: "Demo wallet",
-    desc: "Sample wallet flow, entirely front-end.",
+    title: "Wallet",
+    desc: "Wallet-style flow.",
   },
   {
     id: "demo-cod",
     icon: Banknote,
-    title: "Demo pay on delivery",
-    desc: "Cash on delivery — represented visually only.",
+    title: "Pay on delivery",
+    desc: "Cash on delivery.",
   },
 ] as const;
 
@@ -115,13 +114,13 @@ export default function CheckoutPage() {
   const placeOrder = () => {
     if (!validate(2)) return;
     if (!form.method) {
-      setErrors({ method: "Choose a demo payment method" });
+      setErrors({ method: "Choose a payment method" });
       return;
     }
     const id = `NX-${2049 + Math.floor(Math.random() * 40)}`;
     clearCart();
     setPlaced({ id });
-    toast("Order placed (demo)", { desc: `Order ${id} created successfully.` });
+    toast("Order placed", { desc: `Order ${id} created.` });
   };
 
   if (items.length === 0 && !placed) {
@@ -133,7 +132,7 @@ export default function CheckoutPage() {
           </div>
           <h1 className="font-display text-base font-semibold text-ink">Nothing to check out</h1>
           <p className="mt-1 max-w-sm text-sm text-ink-3">
-            Your cart is empty. Add a few demo products first, then come back.
+            Your cart is empty. Add a few products first, then come back.
           </p>
           <Link href="/shop" className="mt-5">
             <Button variant="primary">Browse products</Button>
@@ -154,8 +153,8 @@ export default function CheckoutPage() {
             Order received
           </h1>
           <p className="mt-2 text-[14.5px] text-ink-2">
-            Your demo order has been created successfully. No payment was processed — this is a
-            front-end simulation.
+            Your order has been created. No payment was processed — this is a
+            simulated checkout.
           </p>
           <div className="mt-6 flex items-center justify-center gap-2 rounded-2xl border border-edge bg-surface px-4 py-4">
             <span className="text-[13px] text-ink-3">Order</span>
@@ -174,13 +173,13 @@ export default function CheckoutPage() {
             </Link>
             <Link href="/admin" className="sm:hidden">
               <Button size="lg" className="w-full">
-                Track in admin demo
+                View admin dashboard
               </Button>
             </Link>
           </div>
           <p className="mt-5 text-[12px] text-ink-3">
-            Your cart was cleared locally after placing the order. The order is not stored
-            anywhere — it&apos;s a visual demo.
+            Your cart was cleared after placing the order. This is a simulated
+            checkout — nothing is stored or sent.
           </p>
         </div>
       </div>
@@ -199,7 +198,7 @@ export default function CheckoutPage() {
           Checkout
         </h1>
         <p className="mt-1 text-[13px] text-ink-3">
-          Demo flow — no real data leaves this browser.
+          Every input you type stays in this browser.
         </p>
       </div>
 
@@ -249,7 +248,7 @@ export default function CheckoutPage() {
                 <Mail className="h-4 w-4 text-accent" />
                 <h2 className="text-[15px] font-semibold text-ink">Contact information</h2>
               </div>
-              <Field label="Email" hint={errors.email ? undefined : "Where the (fake) receipt would go"}>
+              <Field label="Email" hint={errors.email ? undefined : "Where the receipt is sent"}>
                 <Input
                   type="email"
                   placeholder="you@example.com"
@@ -352,7 +351,6 @@ export default function CheckoutPage() {
                       <span className="flex-1">
                         <span className="flex items-center gap-2 text-[13.5px] font-semibold text-ink">
                           {m.title}
-                          <Badge tone="warn">Demo</Badge>
                         </span>
                         <span className="text-[12.5px] text-ink-3">{m.desc}</span>
                       </span>
@@ -384,7 +382,7 @@ export default function CheckoutPage() {
                 </Button>
                 <Button variant="primary" size="lg" onClick={placeOrder}>
                   <Send className="h-4 w-4" />
-                  Place Demo Order
+                  Place Order
                 </Button>
               </div>
             </div>
@@ -426,7 +424,7 @@ export default function CheckoutPage() {
               )}
               <div className="flex justify-between">
                 <span className="text-ink-3">Shipping</span>
-                <span className="text-ok">Free (demo)</span>
+                <span className="text-ok">Free</span>
               </div>
             </div>
             <div className="my-4 h-px bg-edge" />
@@ -434,10 +432,6 @@ export default function CheckoutPage() {
               <span className="text-sm font-semibold text-ink">Total</span>
               <span className="text-xl font-bold tabular-nums text-ink">{money(total)}</span>
             </div>
-            <p className="mt-4 flex items-start gap-1.5 text-[11.5px] leading-relaxed text-ink-3">
-              <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-              Demo checkout only. Featured in this portfolio as an interaction showcase.
-            </p>
           </div>
         </div>
       </div>

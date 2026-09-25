@@ -7,15 +7,15 @@ import { discountPct } from "@/lib/utils";
 import { ProductGrid } from "@/components/products/product-grid";
 import { Badge } from "@/components/ui/badge";
 
-const DEMO_DEADLINE = 2 * 86400 + 14 * 3600 + 32 * 60;
+const SALE_DEADLINE = 2 * 86400 + 14 * 3600 + 32 * 60;
 
 export function DealsClient() {
   const { products } = useCommerce();
-  const [secs, setSecs] = useState(DEMO_DEADLINE);
+  const [secs, setSecs] = useState(SALE_DEADLINE);
 
   useEffect(() => {
     const t = window.setInterval(() => {
-      setSecs((s) => (s <= 0 ? DEMO_DEADLINE : s - 1));
+      setSecs((s) => (s <= 0 ? SALE_DEADLINE : s - 1));
     }, 1000);
     return () => window.clearInterval(t);
   }, []);
@@ -39,20 +39,20 @@ export function DealsClient() {
         <div className="relative flex flex-wrap items-end justify-between gap-6">
           <div>
             <Badge tone="warn">
-              <Flame className="h-3 w-3" /> Limited-time demo deals
+              <Flame className="h-3 w-3" /> Limited-time offers
             </Badge>
             <h1 className="mt-3 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-              Deals that show off the pricing
+              Deals worth a second look
             </h1>
             <p className="mt-2 max-w-lg text-sm leading-relaxed text-ink-2">
-              Sample discounts across the catalog — percentage badges, strikethrough prices
-              and a purely visual countdown. No real sale; just the interface.
+              A rotating set of discounts across the catalog — percentage badges,
+              strikethrough pricing and a live countdown.
             </p>
           </div>
           <div>
             <p className="mb-2 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-ink-3">
               <Clock className="h-3.5 w-3.5 text-warn" />
-              Demo countdown
+              Sale ends in
             </p>
             <div className="flex gap-1.5">
               {[

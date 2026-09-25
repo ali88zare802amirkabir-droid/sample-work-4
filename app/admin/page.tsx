@@ -298,7 +298,7 @@ function EditProductModal({ product, onClose }: { product: Product; onClose: () 
             <ProductArt product={{ ...product, name, price: Number(price) || 0, stock: Number(stock) || 0 }} className="h-full w-full" iconSize={22} />
           </div>
           <p className="text-[12px] text-ink-3">
-            Edits apply instantly to the demo shop, in memory only. Nothing persists.
+            Edits apply instantly to the shop, in memory only. Nothing persists.
           </p>
         </div>
         <Field label="Product name">
@@ -345,7 +345,7 @@ function OrdersTab() {
         <OrderTable rows={orders} />
       </div>
       <p className="border-t border-edge px-5 py-3 text-[12px] text-ink-3">
-        Sample order history for the demo — {orders.length} orders, all fictional.
+        Sample order history — {orders.length} orders, all fictional.
       </p>
     </div>
   );

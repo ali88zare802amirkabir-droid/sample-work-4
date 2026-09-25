@@ -9,7 +9,7 @@ const SHOP_LINKS = [
 ];
 
 const COMPANY_LINKS = [
-  { href: "/about", label: "About this demo" },
+  { href: "/about", label: "About" },
   { href: "/admin", label: "Admin dashboard" },
   { href: "/cart", label: "Cart" },
   { href: "/checkout", label: "Checkout" },
@@ -36,10 +36,10 @@ export function SiteFooter() {
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {[
-                { icon: Sparkles, label: "Demo experience" },
-                { icon: Truck, label: "Fast delivery demo" },
-                { icon: ShieldCheck, label: "Secure (demo) checkout" },
-                { icon: RefreshCcw, label: "Easy returns demo" },
+                { icon: Sparkles, label: "Interactive demo" },
+                { icon: Truck, label: "Fast delivery" },
+                { icon: ShieldCheck, label: "Secure checkout" },
+                { icon: RefreshCcw, label: "Easy returns" },
               ].map(({ icon: Icon, label }) => (
                 <span
                   key={label}

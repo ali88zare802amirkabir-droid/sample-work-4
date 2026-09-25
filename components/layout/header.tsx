@@ -145,7 +145,7 @@ function ProfileMenu() {
     { label: "My Cart", href: "/cart", icon: ShoppingBag },
     { label: "Wishlist", href: "/wishlist", icon: Heart },
     { label: "Admin Dashboard", href: "/admin", icon: LayoutDashboard },
-    { label: "About this demo", href: "/about", icon: ArrowUpRight },
+    { label: "About", href: "/about", icon: ArrowUpRight },
   ];
 
   return (
@@ -289,10 +289,6 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
             </Link>
           </div>
         </div>
-
-        <p className="px-3 pt-2 text-[11px] leading-relaxed text-ink-3">
-          NexaStore is a demo experience — everything runs locally. No real payments, no real accounts.
-        </p>
       </div>
     </Drawer>
   );

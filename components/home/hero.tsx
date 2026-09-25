@@ -3,8 +3,8 @@ import { ArrowRight, BadgePercent, Sparkles, Star } from "lucide-react";
 import { ProductArt } from "@/components/ui/product-art";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { productById, categoryById } from "@/lib/data";
-import { money } from "@/lib/utils";
+import { productById, categoryById, products } from "@/lib/data";
+import { money, discountPct } from "@/lib/utils";
 import type { Product } from "@/lib/types";
 
 export function Hero() {
@@ -13,14 +13,19 @@ export function Hero() {
   const sideB = productById("keytype-k87");
   if (!main || !sideA || !sideB) return null;
 
+  const avgRating =
+    products.length > 0
+      ? (products.reduce((sum, p) => sum + p.rating, 0) / products.length).toFixed(1)
+      : "—";
+
   return (
     <section className="mx-auto grid max-w-[1280px] items-center gap-10 px-4 pb-12 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-8 lg:pb-20 lg:pt-16">
       <div className="max-w-xl">
         <div className="mb-4 flex flex-wrap items-center gap-2">
           <Badge tone="accent">
-            <Sparkles className="h-3 w-3" /> Demo experience
+            <Sparkles className="h-3 w-3" /> Interactive demo
           </Badge>
-          <Badge tone="muted">22 products live</Badge>
+          <Badge tone="muted">{products.length} products live</Badge>
         </div>
         <h1 className="font-display text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
           Technology that{" "}
@@ -29,8 +34,8 @@ export function Hero() {
           </span>
         </h1>
         <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-2">
-          A curated demo store for modern desks, ears and everyday carry. Browse,
-          filter, wishlist and check out — everything runs locally, nothing is real.
+          A curated store for modern desks, ears and everyday carry. Browse,
+          filter, wishlist and check out — everything runs locally in your browser.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link href="/shop">
@@ -48,9 +53,8 @@ export function Hero() {
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12.5px] text-ink-3">
           <span className="flex items-center gap-1.5">
-            <Star className="h-3.5 w-3.5 fill-warn text-warn" /> 4.6 average rating
+            <Star className="h-3.5 w-3.5 fill-warn text-warn" /> {avgRating} average rating
           </span>
-          <span>…any store, this time demo</span>
         </div>
       </div>
 
@@ -61,6 +65,7 @@ export function Hero() {
 
 function HeroScene({ main, sideA, sideB }: { main: Product; sideA: Product; sideB: Product }) {
   const cat = categoryById(main.category);
+  const pct = discountPct(main.price, main.oldPrice);
   return (
     <div className="relative hidden h-[300px] sm:block lg:h-[460px]" aria-hidden>
       <div
@@ -109,7 +114,7 @@ function HeroScene({ main, sideA, sideB }: { main: Product; sideA: Product; side
         className="absolute right-[16%] top-[8%] rounded-lg border border-warn/25 bg-warn-soft px-2 py-1 text-[11px] font-bold text-warn"
         style={{ animationDelay: "0.4s" }}
       >
-        −24% today
+        −{pct}% today
       </span>
     </div>
   );

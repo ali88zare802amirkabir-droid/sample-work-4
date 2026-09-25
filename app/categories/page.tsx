@@ -25,8 +25,8 @@ export default function CategoriesPage() {
           Categories
         </h1>
         <p className="mt-2 text-sm text-ink-3">
-          Every product in the demo catalog lives under one of five categories. Pick one to
-          jump straight into a filtered Shop view.
+          Every product lives under one of five categories. Pick one to jump
+          straight into a filtered Shop view.
         </p>
       </div>
 
@@ -72,10 +72,10 @@ export default function CategoriesPage() {
           <div>
             <p className="text-[11px] font-bold uppercase tracking-wider text-warn">Save money</p>
             <h2 className="mt-2 font-display text-xl font-semibold text-ink">
-              Limited-time demo deals
+              Limited-time offers
             </h2>
             <p className="mt-2 text-[13.5px] leading-relaxed text-ink-3">
-              Discounts that show off pricing treatments — badges, strikethroughs and a
+              A rotating set of discounts — badges, strikethrough pricing and a
               visual countdown.
             </p>
           </div>

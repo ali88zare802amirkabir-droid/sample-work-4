@@ -22,7 +22,7 @@ export default function WishlistPage() {
         <EmptyState
           icon={Heart}
           title="Your wishlist is empty"
-          desc="Tap the heart on any product to save it here. Demo wishlists stay on this device."
+          desc="Tap the heart on any product to save it here. Items you save stay on this device."
           action={
             <Link href="/shop">
               <Button variant="primary">Explore products</Button>

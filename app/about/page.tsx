@@ -9,6 +9,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { products } from "@/lib/data";
+
+const CATALOG_SIZE = products.length;
 
 const PILLARS = [
   {
@@ -24,7 +27,7 @@ const PILLARS = [
   {
     icon: MousePointerClick,
     title: "Experience",
-    desc: "Twenty-two products, five categories, working tabs, sortable grids and demo flows — every button does something. Built to feel like a real premium store.",
+    desc: `${CATALOG_SIZE} products across five categories, working tabs, sortable grids and demo flows — every button does something. Built to feel like a real premium store.`,
   },
 ];
 

@@ -49,7 +49,7 @@ export function CartDrawer() {
           <div>
             <p className="font-display text-base font-semibold text-ink">Your cart is empty</p>
             <p className="mt-1 text-[13px] text-ink-3">
-              Add something you love — everything ships from demo-land instantly.
+              Add something you love and it will show up here instantly.
             </p>
           </div>
           <Button size="sm" onClick={() => setCartOpen(false)}>
@@ -131,7 +131,7 @@ export function CartDrawer() {
             )}
             <div className="mb-1 flex items-center justify-between text-[13px]">
               <span className="text-ink-3">Shipping</span>
-              <span className="font-medium tabular-nums text-ok">Free (demo)</span>
+              <span className="font-medium tabular-nums text-ok">Free</span>
             </div>
             <div className="my-3 h-px bg-edge" />
             <div className="mb-4 flex items-center justify-between">
@@ -150,9 +150,6 @@ export function CartDrawer() {
                 </Button>
               </Link>
             </div>
-            <p className="mt-3 text-center text-[11px] text-ink-3">
-              Demo checkout — no real payment is processed.
-            </p>
           </div>
         </>
       )}

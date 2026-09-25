@@ -18,14 +18,13 @@ export function PromoBanner() {
           <div>
             <p className="mb-2 inline-flex items-center gap-1.5 rounded-full border border-warn/25 bg-warn-soft px-2.5 py-1 text-[11px] font-bold text-warn">
               <BadgePercent className="h-3.5 w-3.5" />
-              Demo promo
+              Limited-time offers
             </p>
             <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
               Upgrade your setup.
             </h2>
             <p className="mt-3 max-w-md text-[15px] leading-relaxed text-ink-2">
               A set of curated discounts across desks, audio and everyday carry.
-              Discounts are sample data — but the experience is real.
             </p>
           </div>
           <div className="lg:justify-self-end">
@@ -36,7 +35,7 @@ export function PromoBanner() {
               </Button>
             </Link>
             <p className="mt-3 text-[12px] text-ink-3 lg:text-right">
-              Limited-time *demo* countdown — purely visual.
+              Best sellers restocked weekly.
             </p>
           </div>
         </div>

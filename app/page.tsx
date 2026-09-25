@@ -4,7 +4,6 @@ import { CategoryCards } from "@/components/home/category-cards";
 import { FeaturedGrid } from "@/components/home/featured-grid";
 import { PromoBanner } from "@/components/home/promo-banner";
 import { BestSellers } from "@/components/home/best-sellers";
-import { WhyNexaStore } from "@/components/home/why";
 import { SectionHead } from "@/components/ui/section-head";
 import { categories, products } from "@/lib/data";
 
@@ -28,7 +27,7 @@ export default function HomePage() {
         <SectionHead
           eyebrow="Handpicked"
           title="Featured Products"
-          desc="A quick look at the most-loved items in the demo catalog."
+          desc="A quick look at the most-loved items in the catalog."
           link="/shop"
           linkLabel="Shop all"
         />
@@ -47,13 +46,6 @@ export default function HomePage() {
         />
         <BestSellers />
       </section>
-
-      <WhyNexaStore />
-
-      <p className="mx-auto max-w-[1280px] px-4 text-center text-[12px] text-ink-3 sm:px-6">
-        NexaStore is a fictional e-commerce demo — products, prices, orders and reviews are
-        sample data. No real checkout, no real payments.
-      </p>
     </div>
   );
 }

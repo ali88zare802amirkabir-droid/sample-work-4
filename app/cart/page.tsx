@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Info, ShoppingBag, Trash2, X } from "lucide-react";
+import { ArrowRight, ShoppingBag, Trash2, X } from "lucide-react";
 import { useCommerce } from "@/lib/store";
 import { money } from "@/lib/utils";
 import { categoryById } from "@/lib/data";
@@ -139,7 +139,7 @@ export default function CartPage() {
               )}
               <div className="flex items-center justify-between">
                 <span className="text-ink-3">Shipping</span>
-                <span className="font-medium tabular-nums text-ok">Free (demo)</span>
+                <span className="font-medium tabular-nums text-ok">Free</span>
               </div>
               <div className="my-3 h-px bg-edge" />
               <div className="flex items-center justify-between">
@@ -158,10 +158,6 @@ export default function CartPage() {
                 Continue shopping
               </Button>
             </Link>
-            <p className="mt-4 flex items-start gap-1.5 text-[11.5px] leading-relaxed text-ink-3">
-              <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-              Checkout is a front-end demo. No payment is collected or processed.
-            </p>
           </div>
         </div>
       </div>
