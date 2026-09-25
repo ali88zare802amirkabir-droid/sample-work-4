@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: nexastore
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm run start
+    healthCheckPath: /
+    autoDeploy: true
