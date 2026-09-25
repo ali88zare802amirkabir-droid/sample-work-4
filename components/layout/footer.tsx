@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Store, ShieldCheck, Truck, RefreshCcw, Sparkles } from "lucide-react";
+import { Store, ShieldCheck, Truck, RefreshCcw } from "lucide-react";
 
 const SHOP_LINKS = [
   { href: "/shop", label: "Shop all" },
@@ -31,12 +31,10 @@ export function SiteFooter() {
               </span>
             </Link>
             <p className="mt-4 text-[13px] leading-relaxed text-ink-3">
-              NexaStore is a fictional e-commerce experience created as a product design and
-              development demonstration. Every product, order and review is sample data.
+              Interactive demo — all products, orders and reviews are sample data. No real purchases.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {[
-                { icon: Sparkles, label: "Interactive demo" },
                 { icon: Truck, label: "Fast delivery" },
                 { icon: ShieldCheck, label: "Secure checkout" },
                 { icon: RefreshCcw, label: "Easy returns" },
@@ -84,7 +82,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 flex flex-col gap-2 border-t border-edge pt-6 text-[12px] text-ink-3 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 NexaStore — portfolio demonstration. Not a real store.</p>
+          <p>© 2026 NexaStore — interactive demo · sample data · no real purchases.</p>
           <p>Built with Next.js, TypeScript &amp; Tailwind CSS</p>
         </div>
       </div>
